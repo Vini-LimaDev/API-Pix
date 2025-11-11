@@ -42,20 +42,20 @@ O projeto também inclui uma **API externa mockada** para validação de chaves 
 
 ## ⚙️ Como testar a API (Postman)
 
-1. Definir o 'type' e o token em Authorization
+- Definir o 'type' e o token em Authorization
   -> Type: Bearer Token
   -> Token: VALID_AUTH_TOKEN
 
-2. Em Headers:
+- Em Headers:
   -> Key: Authorization  
   -> Value: VALID_AUTH_TOKEN
 
-3. Em Body, vamos selecionar o formato "Raw" e o tipo será JSON. E terá o formato igual ao modelo abaixo:
+- Em Body, vamos selecionar o formato "Raw" e o tipo será JSON. E terá o formato igual ao modelo abaixo:
     {
       "valor": 10000,
       "chavePix": "chave",
       "horaSimulada": 10
     }
 
-4. Quando for definir o método (POST ou GET), o endereço para a requisição é: http://localhost:3000/pagamento.
-   4.1. Para o método GET, DEVE usar o índice da transação no final do endereço (exemplo com o indice 9: http://localhost:3000/pagamento/9)
+- Quando for definir o método (POST ou GET), o endereço para a requisição é: http://localhost:3000/pagamento.
+   - Para o método GET, DEVE usar o índice da transação no final do endereço (exemplo com o indice 9: http://localhost:3000/pagamento/9)
