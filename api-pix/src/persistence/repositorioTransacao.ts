@@ -32,10 +32,12 @@ export async function buscarTransacao(id: string): Promise<Transacao | null> {
 // Lista todas as transações do mês e ano.
 export async function listarTransacoesDoMes(
   ano: number,
-  mes: number
+  mes: number,
+  chavePix: string
 ): Promise<Transacao[]> {
   return Object.values(bancoDeDados).filter(t => {
     const data = new Date(t.criadoEm);
-    return data.getUTCFullYear() === ano && data.getUTCMonth() === mes;
+    const mesmaChave = !chavePix || t.chavePix === chavePix;
+    return data.getUTCFullYear() === ano && data.getUTCMonth() === mes && mesmaChave;
   });
 }

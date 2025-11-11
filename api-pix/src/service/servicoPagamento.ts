@@ -30,10 +30,10 @@ if (horarioNoturno && valor > 1000) {
   // Regra 2: bloqueio pelo limite mensal
   const ano = agora.getUTCFullYear();
   const mes = agora.getUTCMonth();
-  const transacoesMes = await listarTransacoesDoMes(ano, mes);
+  const transacoesMes = await listarTransacoesDoMes(ano, mes, chavePix);
   const soma = transacoesMes.reduce((acc, t) => acc + t.valor, 0) + valor;
   if (soma > 30000) {
-    throw new Error('Transação bloqueada: limite mensal de R$ 30.000 excedido.');
+    throw new Error(`Transação bloqueada: limite mensal de R$ 30.000 excedido para a chave '${chavePix}'.`);
   }
 
   // Consulta dados da conta da chave Pix na API externa
